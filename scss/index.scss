@@ -1,0 +1,69 @@
+@use 'base';
+@use 'functions' as *;
+@use 'mixins' as *;
+@use 'variables' as *;
+
+body {
+  background-color: get-color('slate', '300');
+}
+
+.container {
+  //keep space between the container and the edge of the screen
+  .qr-code {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem-calc(24);
+    padding-right: rem-calc(16);
+    padding-left: rem-calc(16);
+    padding-top: rem-calc(16);
+    padding-bottom: rem-calc(40);
+    background-color: $white;
+    border-radius: rem-calc(20);
+
+    .img-wrapper {
+      width: rem-calc(288);
+      height: rem-calc(288);
+      background-color: get-color('blue', '600');
+      border: 1px solid get-color('slate', '300');
+      border-radius: rem-calc(10);
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .content {
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 rem-calc(16);
+      gap: rem-calc(16);
+
+      h2 {
+        width: fit-content;
+        height: fit-content;
+        @include typography('outfit-bold');
+        text-align: center;
+        vertical-align: text-top;
+        color: get-color('slate', '900');
+      }
+
+      p {
+        width: fit-content;
+        height: fit-content;
+        @include typography('outfit-regular');
+        text-align: center;
+        vertical-align: text-top;
+        color: get-color('slate', '500');
+      }
+    }
+  }
+}
